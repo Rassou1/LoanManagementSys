@@ -42,11 +42,15 @@ namespace LoanManagementSys.Managers
             return (members == null) || (members.Count <= 0);
         }
 
-        public void addTestMembers()
+        //FIGURE OUT ID SYSTEM
+
+        public void addTestMember()
         {
             for (int i = 0; i <10; i++)
             {
                 Member m = new Member(10 + i, "Member" + (i + 1));
+                m.ID = 10 + i;
+                m.Name = "Member" + (i + 1);
                 members.Add(m);
             }
         }
