@@ -1,0 +1,50 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\0Courses\\Concurrency\\0Lectures\\Module1\\2024\\Assignment1\\Publish\\LoanManagementSysCS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D8929CBC-2884-4597-A432-40BB9DBF0B6A}|LoanManagementSys.csproj|d:\\0courses\\concurrency\\0lectures\\module1\\2024\\assignment1\\publish\\loanmanagementsyscs\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D8929CBC-2884-4597-A432-40BB9DBF0B6A}|LoanManagementSys.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "D:\\0Courses\\Concurrency\\0Lectures\\Module1\\2024\\Assignment1\\Publish\\LoanManagementSysCS\\MainForm.cs",
+              "RelativeDocumentMoniker": "MainForm.cs",
+              "ToolTip": "D:\\0Courses\\Concurrency\\0Lectures\\Module1\\2024\\Assignment1\\Publish\\LoanManagementSysCS\\MainForm.cs [Design]",
+              "RelativeToolTip": "MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-27T01:34:16.082Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 28,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
