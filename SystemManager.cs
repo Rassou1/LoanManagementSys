@@ -12,8 +12,7 @@ namespace LoanManagementSys
     {
         //make threads here. instantiate all managers and tasks. run tasks through threads.
 
-        public class System
-        {
+        
             public MemberManager mm;
             public ProductManager pm;
             public LoanManager lm;
@@ -28,7 +27,7 @@ namespace LoanManagementSys
             public Thread ReturnThread;
             public bool stop = false;
 
-            public System(MainForm mainForm) 
+            public SystemManager(MainForm mainForm) 
             {
                 mm = new MemberManager();
                 pm = new ProductManager();
@@ -79,7 +78,7 @@ namespace LoanManagementSys
 
 
 
-        }
+        
 
     }
 }

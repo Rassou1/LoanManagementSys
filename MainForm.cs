@@ -2,17 +2,19 @@ namespace LoanManagementSys;
 
 public partial class MainForm : Form
 {
-    //private LoanSysManager loanSystem;
+    SystemManager systemmanager;
 
     public MainForm()
     {
         InitializeComponent();
-        //loanSystem = new LoanSysManager(lstOutput, lstItems);
+        systemmanager = new SystemManager(this);
     }
 
     private void btnOK_Click(object sender, EventArgs e)
     {
         //loanSystem.Start();
+
+        systemmanager.MakeThreads();
 
         //This code is only an example of how 
         //you can update the list boxes or other 

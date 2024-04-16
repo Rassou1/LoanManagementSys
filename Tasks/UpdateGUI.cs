@@ -19,13 +19,15 @@ internal class UpdateGUI
 {
     private Random random;
     private bool isRunning = true; //to start and stop the thread
-    //private LoanSysManager loanSys;
+    private SystemManager sysman;
+    public MainForm mainForm;
 
     //constructor
-    public UpdateGUI(/*LoanSysManager loanSys*/)
+    public UpdateGUI(SystemManager sysman, MainForm mainform)
     {
-       // this.loanSys = loanSys;
-        random = new Random();
+        this.sysman = sysman;
+        this.mainForm = mainform;
+         random = new Random();
     }
 
     //Sets isRunning to true/fals; when true, the thread continues processing and
@@ -54,5 +56,12 @@ internal class UpdateGUI
         }
     }
 
+
+    public void updateProducts()
+    {
+        string[] prodinfostrings = sysman.pm.GetProductInfoStrings();   
+
+        
+    }
 }
 
