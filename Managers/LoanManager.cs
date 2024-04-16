@@ -12,13 +12,14 @@ namespace LoanManagementSys.Managers
         private List<LoanItem> loanItems = new();
         ProductManager pm;
         MemberManager mm;
-        
-       public LoanManager(ProductManager pm, MemberManager mm)
+        Random rnd = new Random();
+
+        public LoanManager(ProductManager pm, MemberManager mm)
         {
             this.pm = pm;
             this.mm = mm;
         }
-        Random rnd = new Random();
+        
 
         public LoanItem Get(int index)
         {
@@ -31,19 +32,28 @@ namespace LoanManagementSys.Managers
 
         public void AddItem()
         {   
-            LoanItem temp = new LoanItem(pm.products[rnd.Next(100,115)], mm.members[rnd.Next(10,20)]);
+            LoanItem temp = new LoanItem(pm.products[rnd.Next(0,pm.Count)], mm.members[rnd.Next(10,20)]);
             loanItems.Add(temp);
         }
-       
+
+        //USE CREATELOANITEM METHOD INSTEAD OF DIRECT RANDOM INDEX INPUT?
 
         public void Remove()
         {
-            int tempindex = rnd.Next(0, 15);
+            if(loanItems.Count <=0)
+            {
+                return;
+            }
+
+            int tempindex = rnd.Next(0, loanItems.Count);
+          
             if (CheckIndex(tempindex))
             {
+                pm.Add(loanItems[tempindex].Product);
                 loanItems.RemoveAt(tempindex);
             }
         }
+        
         
 
         public int Count

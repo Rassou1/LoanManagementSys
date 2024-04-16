@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace LoanManagementSys.Tasks
 {
-    internal class LoanTask : ParentTask
+    internal class ReturnTask : ParentTask
     {
         LoanManager lm;
-        public LoanTask(LoanManager lm) 
+
+        public ReturnTask(LoanManager lm)
         {
             this.lm = lm;
         }
@@ -20,9 +21,9 @@ namespace LoanManagementSys.Tasks
             while(isRunning)
             {
                 //Runs on associated thread.
-                //Loans a random item to a random member.
-                lm.AddItem();
-                Thread.Sleep(rndTimer.Next(1000, 15000));
+                //Returns an item from the loanItems list back to the Products list.
+                lm.Remove();
+                Thread.Sleep(rndTimer.Next(5000, 15000));
             }
         }
     }
