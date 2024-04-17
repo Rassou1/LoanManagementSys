@@ -94,8 +94,8 @@
         #endregion
 
         private Button btnOK;
-        private ListBox lstOutput;
+        public ListBox lstOutput;
         private Button btnStop;
-        private ListBox lstItems;
+        public ListBox lstItems;
     }
 }

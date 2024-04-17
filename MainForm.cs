@@ -15,6 +15,7 @@ public partial class MainForm : Form
         //loanSystem.Start();
 
         systemmanager.MakeThreads();
+        systemmanager.LiveThreads();
 
         //This code is only an example of how 
         //you can update the list boxes or other 
@@ -22,26 +23,24 @@ public partial class MainForm : Form
         //in UpdateProducts in the class where you create your 
         //tasks and threads to update the listboxes on the 
         //MainForm.
-        string[] items = { "Product 1", "Product 2", "Product 3" };
-        for (int i = 0; i < items.Length; i++)
-        {
-            UpdateProducts(items[i], i);
+        //string[] items = { "Product 1", "Product 2", "Product 3" };
+        //for (int i = 0; i < items.Length; i++)
+        //{
+        //    UpdateProducts(items[i], i);
 
-        }
+        //}
         
     }
-    private void UpdateProducts(string item, int i)
+    public void UpdateEvents(string item)
     {
         if (lstItems.InvokeRequired)
         {
-            lstItems.Invoke(new Action<string, int>(UpdateProducts), item);
+            lstOutput.Invoke(new Action<string>(UpdateEvents), item);
         }
         else
-        {
-            if (i == 0)
-                lstItems.Items.Clear();
+        { 
 
-            lstItems.Items.Add(item);
+            lstOutput.Items.Add(item);
         }
     }
 
@@ -49,20 +48,19 @@ public partial class MainForm : Form
     private void btnStop_Click(object sender, EventArgs e)
     {
         //loanSystem.Stop();
+        systemmanager.KillThreads();
    }
 
 
-    private void UpdateProductListBox(string item, int i)
+    public void UpdateProductListBox(string item)
     {
         // Check if we need to call Invoke to marshal the call to the UI thread
         if (lstItems.InvokeRequired)
         {
-            lstItems.Invoke(new Action<string, int>(UpdateProductListBox), item, i);
+            lstItems.Invoke(new Action<string>(UpdateProductListBox), item);
         }
         else
         {
-            if (i == 0)
-                lstItems.Items.Clear();
 
             lstItems.Items.Add(item);
         }

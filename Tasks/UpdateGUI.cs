@@ -18,7 +18,7 @@ namespace LoanManagementSys;
 internal class UpdateGUI
 {
     private Random random;
-    private bool isRunning = true; //to start and stop the thread
+    public bool isRunning = true; //to start and stop the thread
     private SystemManager sysman;
     public MainForm mainForm;
 
@@ -27,7 +27,7 @@ internal class UpdateGUI
     {
         this.sysman = sysman;
         this.mainForm = mainform;
-         random = new Random();
+        random = new Random();
     }
 
     //Sets isRunning to true/fals; when true, the thread continues processing and
@@ -45,8 +45,11 @@ internal class UpdateGUI
             {
 
                 // Update any UI  - UpdateLoanIemList
-                
+
                 //loanSys.UpdateAllItems();  
+                updateProductBox();
+                updateEventBox();
+
                 Thread.Sleep(2000); // Simulate some operation
             }
         }
@@ -57,11 +60,58 @@ internal class UpdateGUI
     }
 
 
-    public void updateProducts()
+    public void updateProductBox()
     {
-        string[] prodinfostrings = sysman.pm.GetProductInfoStrings();   
+        string[] prodinfostrings = sysman.pm.GetProductInfoStrings();
 
-        
+        if (mainForm.lstItems.InvokeRequired)
+        {
+            mainForm.lstItems.Invoke(new Action(updateProductBox));
+        }
+        else
+        {
+            //remember to make updateproducts, lstoutput, and lstitems private again if move to mainform.
+            clearProducts();
+            foreach(string prodinfo in prodinfostrings)
+            {
+                mainForm.UpdateProductListBox(prodinfo);
+            }
+        }
+    }
+    public void updateEventBox()
+    {
+        string[] LoanItemInfo = sysman.lm.getLoanItemInfo();
+        string[] productInfo = sysman.pm.GetProductInfoStrings();
+
+        if (mainForm.lstOutput.InvokeRequired)
+        {
+            mainForm.lstOutput.Invoke(new Action(updateEventBox));
+        }
+        else
+        {
+            clearEvents();
+            foreach(string loanInfoString in LoanItemInfo)
+            {
+                mainForm.UpdateEvents(loanInfoString);
+            }
+            foreach (string productInfoString in productInfo) 
+            {
+                mainForm.UpdateEvents(productInfoString);
+            }
+        }
+    }
+
+
+
+
+    public void clearProducts()
+    {
+        mainForm.lstItems.Items.Clear();
+    }
+
+    public void clearEvents()
+    {
+        mainForm.lstOutput.Items.Clear();
     }
 }
 

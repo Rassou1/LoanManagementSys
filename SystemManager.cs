@@ -62,7 +62,7 @@ namespace LoanManagementSys
 
             public void LiveThreads()
             {
-                //updateGUI.isRunning = true;
+                updateGUI.isRunning = true;
                 AT.Running = true;
                 LT.Running = true;
                 RT.Running = true;
@@ -70,7 +70,7 @@ namespace LoanManagementSys
 
             public void KillThreads()
             {
-                //updateGUI.isRunning = false;
+                updateGUI.isRunning = false;
                 AT.Running = false;
                 LT.Running = false;
                 RT.Running = false;
