@@ -56,6 +56,7 @@ internal class UpdateGUI
         catch (Exception ex)
         {
             //loanSys.UpdateEventLogListBox(ex.Message);
+
         }
     }
 
@@ -80,8 +81,9 @@ internal class UpdateGUI
     }
     public void updateEventBox()
     {
-        string[] LoanItemInfo = sysman.lm.getLoanItemInfo();
         string[] productInfo = sysman.pm.GetProductInfoStrings();
+        string[] LoanItemInfo = sysman.lm.getLoanItemInfo();
+        
 
         if (mainForm.lstOutput.InvokeRequired)
         {

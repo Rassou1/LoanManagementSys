@@ -32,11 +32,14 @@ namespace LoanManagementSys.Managers
 
         public void AddItem()
         {   
-            LoanItem temp = new LoanItem(pm.products[rnd.Next(0,pm.Count)], mm.members[rnd.Next(10,20)]);
+            LoanItem temp = new LoanItem(pm.products[rnd.Next(0,pm.Count)], mm.members[rnd.Next(0,mm.Count)]);
+            pm.products.Remove(temp.Product);
             loanItems.Add(temp);
         }
 
         //USE CREATELOANITEM METHOD INSTEAD OF DIRECT RANDOM INDEX INPUT?
+
+        
 
         public void Remove()
         {
@@ -85,7 +88,7 @@ namespace LoanManagementSys.Managers
             loanItemInfo[0] = $"Products on loan: {loanItems.Count}";
             int j = 1;
             
-            for (int i = 0; i>loanItems.Count; i++)
+            for (int i = 0; i<loanItems.Count; i++)
             {
                 loanItemInfo[j++] = loanItems[i].Product.name;
             }

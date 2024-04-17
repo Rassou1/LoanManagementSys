@@ -20,7 +20,7 @@ namespace LoanManagementSys
             AdminTask AT;
             LoanTask LT;
             ReturnTask RT;
-            public MainForm mainform;
+            public MainForm mainForm;
             public Thread GUIThread;
             public Thread LoanThread;
             public Thread AdminThread;
@@ -32,14 +32,14 @@ namespace LoanManagementSys
                 mm = new MemberManager();
                 pm = new ProductManager();
                 lm = new LoanManager(pm, mm);
-                this.mainform = mainForm;
+                this.mainForm = mainForm;
                 AT = new AdminTask(pm);
                 LT = new LoanTask(lm);
                 RT = new ReturnTask(lm);
-                //updateGUI = new UpdateGUI(this, mainform);
+                updateGUI = new UpdateGUI(this, mainForm);
                 InitializeProgram();
                 MakeThreads();
-                //make the rest of this bruh
+                
             }
 
             public void InitializeProgram()
@@ -50,11 +50,11 @@ namespace LoanManagementSys
 
             public void MakeThreads()
             {
-                GUIThread = new Thread(updateGUI.Run);
                 AdminThread = new Thread(AT.Run);
                 LoanThread = new Thread(LT.Run);
                 ReturnThread = new Thread(RT.Run);
-                GUIThread.Start();
+            GUIThread = new Thread(updateGUI.Run);
+            GUIThread.Start();
                 AdminThread.Start();
                 LoanThread.Start();
                 ReturnThread.Start();
@@ -62,19 +62,21 @@ namespace LoanManagementSys
 
             public void LiveThreads()
             {
-                updateGUI.isRunning = true;
+                
                 AT.Running = true;
                 LT.Running = true;
                 RT.Running = true;
-            }
+            updateGUI.isRunning = true;
+        }
 
             public void KillThreads()
             {
-                updateGUI.isRunning = false;
+                
                 AT.Running = false;
                 LT.Running = false;
                 RT.Running = false;
-            }
+            updateGUI.isRunning = false;
+        }
 
 
 
